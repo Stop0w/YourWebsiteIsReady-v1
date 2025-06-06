@@ -1,0 +1,32 @@
+{
+  "businesses": [
+    {
+      "slug": "cumnockgolfclub",
+      "name": "Cumnock Golf Club",
+      "category": "golfclub",
+      "location": "Cumnock, NSW",
+      "description": "Experience championship golf in the heart of beautiful countryside. Our 18-hole course offers challenging play for golfers of all skill levels.",
+      "tagline": "Experience Championship Golf in Beautiful Countryside",
+      "contact": {
+        "phone": "(02) 6367 1234",
+        "email": "info@cumnockgolf.com",
+        "address": "123 Golf Course Road, Cumnock, NSW 2867"
+      },
+      "status": "ready"
+    },
+    {
+      "slug": "abcplumbing",
+      "name": "ABC Plumbing Services",
+      "category": "tradesman",
+      "location": "Sydney, NSW",
+      "description": "Professional plumbing services you can trust. Available 24/7 for emergency callouts with fully licensed and insured technicians.",
+      "tagline": "Professional Plumbing Services You Can Trust",
+      "contact": {
+        "phone": "0400 123 456",
+        "email": "info@abcplumbing.com.au",
+        "address": "456 Trade Street, Sydney, NSW 2000"
+      },
+      "status": "ready"
+    }
+  ]
+}

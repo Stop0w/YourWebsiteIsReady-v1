@@ -1,0 +1,132 @@
+{
+  "templates": [
+    {
+      "name": "Classic Golf",
+      "category": "golfclub",
+      "templateNumber": 1,
+      "theme": "Traditional & Elegant",
+      "description": "A classic design featuring scenic course photography and elegant typography",
+      "heroImage": "https://images.unsplash.com/photo-1535131749006-b7f58c99034b",
+      "features": ["Hero Section", "Course Info", "Booking System", "Photo Gallery"],
+      "sections": {
+        "hero": true,
+        "about": true,
+        "gallery": true,
+        "contact": true,
+        "services": true
+      }
+    },
+    {
+      "name": "Modern Golf",
+      "category": "golfclub",
+      "templateNumber": 2,
+      "theme": "Clean & Contemporary",
+      "description": "A modern layout with clean lines and contemporary styling",
+      "heroImage": "https://images.unsplash.com/photo-1593111774240-d529f12cf4bb",
+      "features": ["Modern Design", "Event Calendar", "Member Portal", "Pro Shop"],
+      "sections": {
+        "hero": true,
+        "about": true,
+        "gallery": true,
+        "contact": true,
+        "services": true
+      }
+    },
+    {
+      "name": "Scenic Golf",
+      "category": "golfclub",
+      "templateNumber": 3,
+      "theme": "Showcase Your Course",
+      "description": "Emphasizes beautiful course photography and scenic views",
+      "heroImage": "https://images.unsplash.com/photo-1596727362302-b8d891c42ab8",
+      "features": ["Large Gallery", "Virtual Tour", "Course Map", "Weather Widget"],
+      "sections": {
+        "hero": true,
+        "about": true,
+        "gallery": true,
+        "contact": true,
+        "services": true
+      }
+    },
+    {
+      "name": "Premium Golf",
+      "category": "golfclub",
+      "templateNumber": 4,
+      "theme": "Luxury Experience",
+      "description": "A premium design for upscale golf clubs and resorts",
+      "heroImage": "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa",
+      "features": ["Luxury Design", "Concierge Services", "Fine Dining", "Events"],
+      "sections": {
+        "hero": true,
+        "about": true,
+        "gallery": true,
+        "contact": true,
+        "services": true
+      }
+    },
+    {
+      "name": "Professional Services",
+      "category": "tradesman",
+      "templateNumber": 1,
+      "theme": "Professional & Trustworthy",
+      "description": "Clean professional design emphasizing credentials and reliability",
+      "heroImage": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e",
+      "features": ["Service Areas", "Testimonials", "License Display", "Emergency Contact"],
+      "sections": {
+        "hero": true,
+        "about": true,
+        "gallery": true,
+        "contact": true,
+        "services": true
+      }
+    },
+    {
+      "name": "Service Focused",
+      "category": "tradesman",
+      "templateNumber": 2,
+      "theme": "Service-Oriented Design",
+      "description": "Focuses on showcasing services and getting quick quotes",
+      "heroImage": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64",
+      "features": ["Service List", "Quick Quote", "Before/After", "Service Areas"],
+      "sections": {
+        "hero": true,
+        "about": true,
+        "gallery": true,
+        "contact": true,
+        "services": true
+      }
+    },
+    {
+      "name": "Portfolio Showcase",
+      "category": "tradesman",
+      "templateNumber": 3,
+      "theme": "Work Portfolio Focus",
+      "description": "Highlights completed work and project galleries",
+      "heroImage": "https://images.unsplash.com/photo-1504307651254-35680f356dfd",
+      "features": ["Project Gallery", "Case Studies", "Work Process", "Estimates"],
+      "sections": {
+        "hero": true,
+        "about": true,
+        "gallery": true,
+        "contact": true,
+        "services": true
+      }
+    },
+    {
+      "name": "Emergency Services",
+      "category": "tradesman",
+      "templateNumber": 4,
+      "theme": "24/7 Emergency Ready",
+      "description": "Designed for emergency services with prominent contact options",
+      "heroImage": "https://images.unsplash.com/photo-1581578731548-c64695cc6952",
+      "features": ["24/7 Contact", "Emergency Form", "Live Chat", "Service Areas"],
+      "sections": {
+        "hero": true,
+        "about": true,
+        "gallery": true,
+        "contact": true,
+        "services": true
+      }
+    }
+  ]
+}
