@@ -53,8 +53,7 @@ export class MemStorage implements IStorage {
           email: "info@cumnockgolf.com",
           address: "123 Golf Course Road, Cumnock, NSW 2867"
         },
-        status: "ready",
-        createdAt: new Date().toISOString(),
+        status: "ready"
       },
       {
         slug: "abcplumbing",
@@ -68,8 +67,7 @@ export class MemStorage implements IStorage {
           email: "info@abcplumbing.com.au",
           address: "456 Trade Street, Sydney, NSW 2000"
         },
-        status: "ready",
-        createdAt: new Date().toISOString(),
+        status: "ready"
       }
     ];
 
@@ -189,7 +187,11 @@ export class MemStorage implements IStorage {
     // Initialize data
     sampleBusinesses.forEach(business => {
       const id = this.currentBusinessId++;
-      const businessWithId: Business = { ...business, id };
+      const businessWithId: Business = { 
+        ...business, 
+        id,
+        createdAt: new Date().toISOString()
+      };
       this.businesses.set(business.slug, businessWithId);
     });
 
@@ -220,7 +222,11 @@ export class MemStorage implements IStorage {
 
   async createBusiness(insertBusiness: InsertBusiness): Promise<Business> {
     const id = this.currentBusinessId++;
-    const business: Business = { ...insertBusiness, id };
+    const business: Business = { 
+      ...insertBusiness, 
+      id,
+      createdAt: new Date().toISOString()
+    };
     this.businesses.set(insertBusiness.slug, business);
     return business;
   }
