@@ -1,0 +1,145 @@
+📦 Project Brief: Frontend Infrastructure & Experience for Website-as-a-Service
+🔧 Project Name
+It’s Done
+"We’ve already built it for you."
+Primary domain: itsdone.com.au
+
+🎯 Project Purpose
+To create a scalable, category-based frontend platform that delivers pre-built personalized website previews to businesses that currently lack a professional web presence. Starting with golf clubs and tradesmen, the platform will showcase bespoke templated pages with upsell paths (hosting, updates, domain transfer).
+
+🧱 Foundational Frontend Architecture
+🌐 Domain URL Strategy
+All pages will live under itsdone.com.au, structured as:
+
+css
+Copy
+Edit
+itsdone.com.au/[business-slug]                      → Personal landing page
+itsdone.com.au/[business-slug]/website-[1–4]        → Templated website demos
+itsdone.com.au/[business-slug]/services             → Summary of paid service offerings
+Example:
+
+bash
+Copy
+Edit
+itsdone.com.au/cumnockgolfclub
+itsdone.com.au/cumnockgolfclub/website-1
+itsdone.com.au/cumnockgolfclub/services
+🧭 Information Architecture (IA)
+🔹 Global Pages
+/ — Main homepage (optional for now)
+
+/about (optional)
+
+/categories (index of current categories)
+
+🔹 Category-Level Template Sets
+Each category will have 4 templates to choose from:
+
+bash
+Copy
+Edit
+/_templates/golfclub/website-1
+/templates/tradesman/website-2
+...
+These will be reused and dynamically populated per business instance.
+
+🏗️ Page Types
+Page	Purpose	Notes
+Landing Page /[business-slug]	Personalized sales page (pitch + preview)	Includes CTA to view templates or contact
+Website Template /[business-slug]/website-[n]	Fully built preview (static, no backend)	Populated from dummy data for now
+Service Overview /[business-slug]/services	Explains hosting, updates, custom domain	Will be reused with dynamic business name
+Future: Global homepage /	(Optional) Marketing site for platform	Optional if you're going 100% outbound
+
+🎨 Design System Guidelines
+Element	Spec
+Style	Simple, professional, adaptable per vertical
+Color	Brand-neutral + a swappable accent per category
+Layout	Modular, grid-based layouts
+Template Variability	Swappable hero, about, gallery, contact
+CTA	“Claim This Website” → placeholder form or link
+
+🧰 Templating Requirements (Per Category)
+Each category will have 4 frontend templates with:
+
+Section	Required
+Hero	Business name, tagline, banner image
+About Section	Basic copy & intro
+Photo Gallery	Optional (grabbed via Google/FB later)
+Contact Info	Static for now
+CTA	Claim / Learn more
+Footer	Placeholder social links, copyright
+
+📁 Suggested Folder Structure (Frontend)
+plaintext
+Copy
+Edit
+src/
+  └── pages/
+      ├── [business-slug]/
+      │   ├── index.html                ← landing page
+      │   ├── website-1.html
+      │   ├── website-2.html
+      │   ├── website-3.html
+      │   ├── website-4.html
+      │   └── services.html
+  └── templates/
+      ├── golfclub/
+      │   ├── website-1.html
+      │   └── ...
+      ├── tradesman/
+      │   ├── website-1.html
+      │   └── ...
+  └── data/
+      └── dummy-content.json
+  └── assets/
+      ├── images/
+      ├── css/
+      └── js/
+🔌 Backend (High-Level Placeholder Plan)
+While not required now, here’s the eventual backend architecture:
+
+Component	Role
+CMS or Flat JSON store	Store business content per slug (optional)
+Templating engine (EJS / Flask / JSX)	Dynamically render templates
+Make.com / Google Sheets API	Feed business data into the frontend
+Domain mapping (optional)	Allow custom domain per business as a paid upgrade
+
+🗂️ Categories: MVP Scope
+✅ 1. Golf Clubs
+Templates tailored to scenic photos, club info, booking CTA, course overview
+
+Focus on minimal copy, large visuals, and clean nav
+
+✅ 2. Tradesmen
+Templates suited to electricians, plumbers, etc.
+
+Emphasize services, testimonials, service area, contact form
+
+🛣️ Growth Path: Adding More Categories
+Once golf and trades are in place:
+
+Duplicate the system for a new vertical (e.g. “cafés” or “personal trainers”)
+
+Swap assets + tone in templates
+
+Use same routing and structure
+
+Easy to scale with minimal rework
+
+✍️ Immediate Next Steps (Frontend Phase)
+✅ Confirm global IA & routing structure
+
+✅ Set up folder system and boilerplate templates
+
+✅ Design and build 4 templates for:
+
+Golf clubs
+
+Tradesmen
+
+✅ Build business landing page shell
+
+✅ Create services page with a universal copy template
+
+🔄 Populate with dummy JSON data for now
