@@ -121,7 +121,7 @@ export default function TemplatePreviewPage() {
           ))}
         </div>
 
-        <div className="bg-slate-100 rounded-xl p-4">
+        <div className="bg-white rounded-xl overflow-hidden shadow-lg">
           <TemplatePreview template={template} business={business} />
         </div>
 
