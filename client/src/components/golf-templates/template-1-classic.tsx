@@ -32,27 +32,26 @@ export default function GolfTemplate1Classic({ business }: Template1Props) {
       </header>
 
       {/* Hero Section */}
-      <section id="home" className="relative h-screen">
+      <section id="home" className="relative h-screen flex items-center justify-center">
         <div 
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(https://images.unsplash.com/photo-1535131749006-b7f58c99034b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&h=1000)` }}
+          style={{ backgroundImage: `url(https://images.unsplash.com/photo-1596727362302-b8d891c42ab8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080)` }}
         >
           <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         </div>
-        <div className="relative z-10 flex items-center justify-center h-full text-center text-white">
-          <div className="max-w-4xl mx-auto px-4">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">{business.name}</h1>
-            <p className="text-xl md:text-2xl mb-8 text-white/90">
-              {business.tagline || "Experience Championship Golf in Beautiful Surroundings"}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 text-lg">
-                Book Your Round
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-slate-900 px-8 py-4 text-lg">
-                Course Tour
-              </Button>
-            </div>
+        
+        <div className="relative text-center text-white max-w-4xl mx-auto px-4">
+          <h1 className="text-6xl md:text-7xl font-bold mb-6">{business.name}</h1>
+          <p className="text-xl md:text-2xl mb-8 text-white/90">
+            {business.tagline || "Experience championship golf at its finest"}
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white px-8 py-3">
+              Book Your Round
+            </Button>
+            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-black">
+              Learn More
+            </Button>
           </div>
         </div>
       </section>
@@ -60,93 +59,90 @@ export default function GolfTemplate1Classic({ business }: Template1Props) {
       {/* About Section */}
       <section id="about" className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl font-bold text-slate-900 mb-6">Welcome to Excellence</h2>
-              <p className="text-lg text-slate-600 mb-6 leading-relaxed">
-                {business.description}
-              </p>
-              <div className="grid grid-cols-2 gap-6 mb-8">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-green-600 mb-2">18</div>
-                  <div className="text-slate-600">Championship Holes</div>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-slate-900 mb-6">Welcome to Excellence</h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              {business.description}
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card>
+              <CardContent className="p-8 text-center">
+                <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+                  <span className="text-green-600 text-2xl">🏆</span>
                 </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-green-600 mb-2">72</div>
-                  <div className="text-slate-600">Par Course</div>
+                <h3 className="text-xl font-bold text-slate-900 mb-4">Championship Course</h3>
+                <p className="text-slate-600">
+                  Our 18-hole championship course offers a challenging yet enjoyable experience for golfers of all skill levels.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="p-8 text-center">
+                <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+                  <span className="text-green-600 text-2xl">👥</span>
                 </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-green-600 mb-2">6,500</div>
-                  <div className="text-slate-600">Total Yards</div>
+                <h3 className="text-xl font-bold text-slate-900 mb-4">Professional Staff</h3>
+                <p className="text-slate-600">
+                  Our experienced team of golf professionals is here to help you improve your game and enjoy every moment.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="p-8 text-center">
+                <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+                  <span className="text-green-600 text-2xl">🍽️</span>
                 </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-green-600 mb-2">1925</div>
-                  <div className="text-slate-600">Established</div>
-                </div>
-              </div>
-              <Button className="bg-green-600 hover:bg-green-700 text-white">
-                Learn More About Our History
-              </Button>
-            </div>
-            <div className="relative">
-              <img 
-                src="https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
-                alt="Golf Course"
-                className="rounded-lg shadow-lg"
-              />
-              <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-lg shadow-lg">
-                <div className="text-2xl font-bold text-green-600 mb-1">4.8/5</div>
-                <div className="text-sm text-slate-600">Member Rating</div>
-              </div>
-            </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-4">Fine Dining</h3>
+                <p className="text-slate-600">
+                  Enjoy exceptional cuisine in our clubhouse restaurant with panoramic views of the course.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
-      {/* Course Features */}
+      {/* Course Info */}
       <section id="course" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">Course Features</h2>
-            <p className="text-xl text-slate-600">Discover what makes our course special</p>
-          </div>
-          
-          <div className="grid lg:grid-cols-3 gap-8">
-            <Card className="text-center p-8">
-              <CardContent className="p-0">
-                <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                  <i className="fas fa-flag text-green-600 text-2xl"></i>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-4xl font-bold text-slate-900 mb-6">Course Details</h2>
+              <p className="text-lg text-slate-600 mb-8">
+                Our meticulously maintained championship course features 18 holes of strategic golf designed to challenge and delight players of every skill level.
+              </p>
+              
+              <div className="grid grid-cols-2 gap-6">
+                <div className="bg-green-50 p-6 rounded-lg">
+                  <div className="text-3xl font-bold text-green-600 mb-2">18</div>
+                  <div className="text-slate-600">Championship Holes</div>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-4">Championship Design</h3>
-                <p className="text-slate-600">
-                  Designed by renowned architect, our course challenges players while rewarding strategic thinking and precise shot-making.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center p-8">
-              <CardContent className="p-0">
-                <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                  <i className="fas fa-leaf text-green-600 text-2xl"></i>
+                <div className="bg-green-50 p-6 rounded-lg">
+                  <div className="text-3xl font-bold text-green-600 mb-2">6,800</div>
+                  <div className="text-slate-600">Total Yards</div>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-4">Pristine Conditions</h3>
-                <p className="text-slate-600">
-                  Meticulously maintained fairways and greens ensure optimal playing conditions year-round with our dedicated grounds crew.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center p-8">
-              <CardContent className="p-0">
-                <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                  <i className="fas fa-mountain text-green-600 text-2xl"></i>
+                <div className="bg-green-50 p-6 rounded-lg">
+                  <div className="text-3xl font-bold text-green-600 mb-2">72</div>
+                  <div className="text-slate-600">Par</div>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-4">Scenic Views</h3>
-                <p className="text-slate-600">
-                  Breathtaking vistas from every hole, with natural water features and mature trees creating a truly memorable experience.
-                </p>
-              </CardContent>
-            </Card>
+                <div className="bg-green-50 p-6 rounded-lg">
+                  <div className="text-3xl font-bold text-green-600 mb-2">4.5★</div>
+                  <div className="text-slate-600">Rating</div>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <img 
+                src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+                alt="Golf Course"
+                className="rounded-2xl shadow-lg"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -154,65 +150,63 @@ export default function GolfTemplate1Classic({ business }: Template1Props) {
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-slate-900 mb-6">Contact Us</h2>
+            <p className="text-xl text-slate-600">Get in touch to book your round or learn about membership</p>
+          </div>
+          
           <div className="grid lg:grid-cols-2 gap-12">
-            <div>
-              <h2 className="text-4xl font-bold text-slate-900 mb-6">Visit Us Today</h2>
-              <p className="text-lg text-slate-600 mb-8">
-                Experience the difference at {business.name}. Contact us to schedule a round or learn more about membership opportunities.
-              </p>
+            <div className="space-y-8">
+              <div className="flex items-center space-x-4">
+                <div className="bg-green-100 rounded-lg w-12 h-12 flex items-center justify-center">
+                  <span className="text-green-600">📍</span>
+                </div>
+                <div>
+                  <div className="font-semibold text-slate-900">Address</div>
+                  <div className="text-slate-600">{business.contact?.address || business.location}</div>
+                </div>
+              </div>
               
-              <div className="space-y-6">
-                <div className="flex items-center">
-                  <div className="bg-green-100 rounded-full w-12 h-12 flex items-center justify-center mr-4">
-                    <i className="fas fa-map-marker-alt text-green-600"></i>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-slate-900">Address</div>
-                    <div className="text-slate-600">{business.contact?.address}</div>
-                  </div>
+              <div className="flex items-center space-x-4">
+                <div className="bg-green-100 rounded-lg w-12 h-12 flex items-center justify-center">
+                  <span className="text-green-600">📞</span>
                 </div>
-                
-                <div className="flex items-center">
-                  <div className="bg-green-100 rounded-full w-12 h-12 flex items-center justify-center mr-4">
-                    <i className="fas fa-phone text-green-600"></i>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-slate-900">Phone</div>
-                    <div className="text-slate-600">{business.contact?.phone}</div>
-                  </div>
+                <div>
+                  <div className="font-semibold text-slate-900">Phone</div>
+                  <div className="text-slate-600">{business.contact?.phone}</div>
                 </div>
-                
-                <div className="flex items-center">
-                  <div className="bg-green-100 rounded-full w-12 h-12 flex items-center justify-center mr-4">
-                    <i className="fas fa-envelope text-green-600"></i>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-slate-900">Email</div>
-                    <div className="text-slate-600">{business.contact?.email}</div>
-                  </div>
+              </div>
+              
+              <div className="flex items-center space-x-4">
+                <div className="bg-green-100 rounded-lg w-12 h-12 flex items-center justify-center">
+                  <span className="text-green-600">✉️</span>
+                </div>
+                <div>
+                  <div className="font-semibold text-slate-900">Email</div>
+                  <div className="text-slate-600">{business.contact?.email}</div>
                 </div>
               </div>
             </div>
             
-            <Card className="p-8">
-              <CardContent className="p-0">
-                <h3 className="text-2xl font-bold text-slate-900 mb-6">Book a Round</h3>
+            <Card>
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-bold text-slate-900 mb-6">Book Your Round</h3>
                 <form className="space-y-4">
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">Name</label>
-                    <input type="text" className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600" />
+                    <input type="text" className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">Email</label>
-                    <input type="email" className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600" />
+                    <input type="email" className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">Preferred Date</label>
-                    <input type="date" className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600" />
+                    <input type="date" className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600" />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">Number of Players</label>
-                    <select className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600">
+                    <label className="block text-sm font-medium text-slate-700 mb-2">Players</label>
+                    <select className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600">
                       <option>1 Player</option>
                       <option>2 Players</option>
                       <option>3 Players</option>
@@ -232,56 +226,32 @@ export default function GolfTemplate1Classic({ business }: Template1Props) {
       {/* Footer */}
       <footer className="bg-slate-900 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-2xl font-bold mb-4">{business.name.split(' ')[0]}</h3>
-              <p className="text-slate-300 mb-4">
-                Experience championship golf in beautiful surroundings.
+              <h3 className="text-xl font-bold mb-4">{business.name}</h3>
+              <p className="text-slate-300">
+                Experience championship golf in a welcoming, professional environment.
               </p>
-              <div className="flex space-x-4">
-                <a href="#" className="text-slate-400 hover:text-white">
-                  <i className="fab fa-facebook text-xl"></i>
-                </a>
-                <a href="#" className="text-slate-400 hover:text-white">
-                  <i className="fab fa-instagram text-xl"></i>
-                </a>
-                <a href="#" className="text-slate-400 hover:text-white">
-                  <i className="fab fa-twitter text-xl"></i>
-                </a>
-              </div>
             </div>
-            
             <div>
               <h4 className="font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2 text-slate-300">
                 <li><a href="#about" className="hover:text-white">About</a></li>
                 <li><a href="#course" className="hover:text-white">Course</a></li>
                 <li><a href="#membership" className="hover:text-white">Membership</a></li>
-                <li><a href="#events" className="hover:text-white">Events</a></li>
+                <li><a href="#contact" className="hover:text-white">Contact</a></li>
               </ul>
             </div>
-            
-            <div>
-              <h4 className="font-semibold mb-4">Services</h4>
-              <ul className="space-y-2 text-slate-300">
-                <li><a href="#" className="hover:text-white">Pro Shop</a></li>
-                <li><a href="#" className="hover:text-white">Lessons</a></li>
-                <li><a href="#" className="hover:text-white">Restaurant</a></li>
-                <li><a href="#" className="hover:text-white">Events</a></li>
-              </ul>
-            </div>
-            
             <div>
               <h4 className="font-semibold mb-4">Contact</h4>
               <div className="space-y-2 text-slate-300">
-                <div>{business.contact?.address}</div>
                 <div>{business.contact?.phone}</div>
                 <div>{business.contact?.email}</div>
+                <div>{business.location}</div>
               </div>
             </div>
           </div>
-          
-          <div className="border-t border-slate-700 pt-8 mt-8 text-center text-slate-400">
+          <div className="border-t border-slate-700 mt-8 pt-8 text-center text-slate-400">
             <p>&copy; 2024 {business.name}. All rights reserved.</p>
           </div>
         </div>
