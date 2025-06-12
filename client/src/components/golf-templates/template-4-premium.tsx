@@ -16,7 +16,7 @@ export default function GolfTemplate4Premium({ business }: Template4Props) {
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-3">
                 <div className="w-12 h-12 bg-gradient-to-br from-amber-400 to-amber-600 rounded-full flex items-center justify-center">
-                  <i className="fas fa-crown text-white text-lg"></i>
+                  <span className="text-white text-lg">👑</span>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-slate-900">{business.name.split(' ')[0]}</div>
@@ -29,7 +29,6 @@ export default function GolfTemplate4Premium({ business }: Template4Props) {
               <a href="#experience" className="text-slate-700 hover:text-amber-600 font-medium transition-colors">Experience</a>
               <a href="#amenities" className="text-slate-700 hover:text-amber-600 font-medium transition-colors">Amenities</a>
               <a href="#membership" className="text-slate-700 hover:text-amber-600 font-medium transition-colors">Membership</a>
-              <a href="#concierge" className="text-slate-700 hover:text-amber-600 font-medium transition-colors">Concierge</a>
               <a href="#contact" className="text-slate-700 hover:text-amber-600 font-medium transition-colors">Contact</a>
             </nav>
             <div className="flex items-center space-x-4">
@@ -52,7 +51,7 @@ export default function GolfTemplate4Premium({ business }: Template4Props) {
             <div className="max-w-xl space-y-8">
               <div className="space-y-6">
                 <div className="inline-flex items-center px-4 py-2 bg-amber-50 border border-amber-200 rounded-full">
-                  <i className="fas fa-star text-amber-500 mr-2"></i>
+                  <span className="text-amber-500 mr-2">⭐</span>
                   <span className="text-amber-800 text-sm font-medium">Exclusive Private Club</span>
                 </div>
                 <h1 className="text-5xl lg:text-6xl font-bold text-slate-900 leading-tight">
@@ -124,7 +123,7 @@ export default function GolfTemplate4Premium({ business }: Template4Props) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="inline-flex items-center px-4 py-2 bg-amber-50 rounded-full mb-6">
-              <i className="fas fa-gem text-amber-600 mr-2"></i>
+              <span className="text-amber-600 mr-2">💎</span>
               <span className="text-amber-800 text-sm font-medium">The Premium Experience</span>
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">Redefining Golf Excellence</h2>
@@ -136,7 +135,7 @@ export default function GolfTemplate4Premium({ business }: Template4Props) {
           <div className="grid lg:grid-cols-3 gap-8 mb-16">
             <div className="bg-gradient-to-br from-amber-50 to-amber-100 p-8 rounded-2xl">
               <div className="bg-amber-500 rounded-2xl w-16 h-16 flex items-center justify-center mb-6">
-                <i className="fas fa-concierge-bell text-white text-2xl"></i>
+                <span className="text-white text-2xl">🔔</span>
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-4">Personal Concierge</h3>
               <p className="text-slate-600 leading-relaxed">
@@ -146,7 +145,7 @@ export default function GolfTemplate4Premium({ business }: Template4Props) {
 
             <div className="bg-gradient-to-br from-slate-50 to-slate-100 p-8 rounded-2xl">
               <div className="bg-slate-700 rounded-2xl w-16 h-16 flex items-center justify-center mb-6">
-                <i className="fas fa-utensils text-white text-2xl"></i>
+                <span className="text-white text-2xl">🍽️</span>
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-4">Michelin-Level Dining</h3>
               <p className="text-slate-600 leading-relaxed">
@@ -156,7 +155,7 @@ export default function GolfTemplate4Premium({ business }: Template4Props) {
 
             <div className="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl">
               <div className="bg-green-600 rounded-2xl w-16 h-16 flex items-center justify-center mb-6">
-                <i className="fas fa-golf-ball text-white text-2xl"></i>
+                <span className="text-white text-2xl">⛳</span>
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-4">Championship Course</h3>
               <p className="text-slate-600 leading-relaxed">
@@ -169,7 +168,7 @@ export default function GolfTemplate4Premium({ business }: Template4Props) {
           <div className="bg-slate-900 rounded-3xl p-12 text-center text-white">
             <div className="max-w-4xl mx-auto">
               <div className="text-amber-400 text-4xl mb-6">
-                <i className="fas fa-quote-left"></i>
+                <span>"</span>
               </div>
               <blockquote className="text-2xl font-light italic mb-8 leading-relaxed">
                 "This isn't just a golf club – it's a sanctuary where every detail has been thoughtfully curated to create moments of pure excellence. The level of service and attention to detail is simply unmatched."
@@ -177,98 +176,6 @@ export default function GolfTemplate4Premium({ business }: Template4Props) {
               <div className="border-t border-slate-700 pt-8">
                 <div className="font-semibold text-lg">James Richardson</div>
                 <div className="text-slate-400">Founding Member since 1998</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Amenities Section */}
-      <section id="amenities" className="py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">Exclusive Amenities</h2>
-            <p className="text-xl text-slate-600">Immerse yourself in luxury at every turn</p>
-          </div>
-          
-          <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-3xl font-bold text-slate-900 mb-6">World-Class Facilities</h3>
-                <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                  Our facilities represent the pinnacle of luxury golf amenities, designed to provide an unparalleled experience for our distinguished members.
-                </p>
-              </div>
-              
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="bg-amber-100 rounded-lg w-12 h-12 flex items-center justify-center flex-shrink-0">
-                    <i className="fas fa-spa text-amber-600"></i>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 mb-2">Luxury Spa & Wellness</h4>
-                    <p className="text-slate-600">Full-service spa with massage therapy, fitness center, and wellness programs.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="bg-blue-100 rounded-lg w-12 h-12 flex items-center justify-center flex-shrink-0">
-                    <i className="fas fa-swimmer text-blue-600"></i>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 mb-2">Resort Pool & Cabanas</h4>
-                    <p className="text-slate-600">Infinity pool overlooking the course with private cabanas and poolside service.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="bg-purple-100 rounded-lg w-12 h-12 flex items-center justify-center flex-shrink-0">
-                    <i className="fas fa-glass-whiskey text-purple-600"></i>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 mb-2">Private Wine Cellar</h4>
-                    <p className="text-slate-600">Curated collection of rare vintages with private tasting experiences.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="bg-green-100 rounded-lg w-12 h-12 flex items-center justify-center flex-shrink-0">
-                    <i className="fas fa-users text-green-600"></i>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 mb-2">Private Event Spaces</h4>
-                    <p className="text-slate-600">Elegant venues for corporate events, weddings, and exclusive gatherings.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="relative">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-4">
-                  <img 
-                    src="https://images.unsplash.com/photo-1566835904095-242e7e63c530?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
-                    alt="Luxury Amenity"
-                    className="rounded-2xl shadow-lg object-cover w-full h-48"
-                  />
-                  <img 
-                    src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
-                    alt="Pool Area"
-                    className="rounded-2xl shadow-lg object-cover w-full h-32"
-                  />
-                </div>
-                <div className="space-y-4 pt-8">
-                  <img 
-                    src="https://images.unsplash.com/photo-1540541338287-41700207dee6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
-                    alt="Dining"
-                    className="rounded-2xl shadow-lg object-cover w-full h-32"
-                  />
-                  <img 
-                    src="https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
-                    alt="Luxury Interior"
-                    className="rounded-2xl shadow-lg object-cover w-full h-48"
-                  />
-                </div>
               </div>
             </div>
           </div>
@@ -299,48 +206,6 @@ export default function GolfTemplate4Premium({ business }: Template4Props) {
               </div>
             </div>
             
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-8">
-              <h3 className="text-2xl font-bold mb-6">Membership Includes</h3>
-              <div className="grid md:grid-cols-2 gap-6 text-left">
-                <div className="space-y-3">
-                  <div className="flex items-center">
-                    <i className="fas fa-check text-amber-200 mr-3"></i>
-                    <span>Unlimited championship golf</span>
-                  </div>
-                  <div className="flex items-center">
-                    <i className="fas fa-check text-amber-200 mr-3"></i>
-                    <span>Personal concierge service</span>
-                  </div>
-                  <div className="flex items-center">
-                    <i className="fas fa-check text-amber-200 mr-3"></i>
-                    <span>Priority tee time reservations</span>
-                  </div>
-                  <div className="flex items-center">
-                    <i className="fas fa-check text-amber-200 mr-3"></i>
-                    <span>Exclusive member events</span>
-                  </div>
-                </div>
-                <div className="space-y-3">
-                  <div className="flex items-center">
-                    <i className="fas fa-check text-amber-200 mr-3"></i>
-                    <span>Full dining and spa access</span>
-                  </div>
-                  <div className="flex items-center">
-                    <i className="fas fa-check text-amber-200 mr-3"></i>
-                    <span>Guest privileges and reciprocals</span>
-                  </div>
-                  <div className="flex items-center">
-                    <i className="fas fa-check text-amber-200 mr-3"></i>
-                    <span>Private locker room access</span>
-                  </div>
-                  <div className="flex items-center">
-                    <i className="fas fa-check text-amber-200 mr-3"></i>
-                    <span>Complimentary equipment storage</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
             <Button size="lg" className="bg-white text-amber-600 hover:bg-amber-50 px-10 py-4 text-lg font-semibold">
               Request Membership Information
             </Button>
@@ -363,7 +228,7 @@ export default function GolfTemplate4Premium({ business }: Template4Props) {
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="bg-amber-100 rounded-lg w-12 h-12 flex items-center justify-center flex-shrink-0">
-                    <i className="fas fa-phone text-amber-600"></i>
+                    <span className="text-amber-600">📞</span>
                   </div>
                   <div>
                     <div className="font-semibold text-slate-900 mb-1">Membership Services</div>
@@ -374,7 +239,7 @@ export default function GolfTemplate4Premium({ business }: Template4Props) {
                 
                 <div className="flex items-start space-x-4">
                   <div className="bg-amber-100 rounded-lg w-12 h-12 flex items-center justify-center flex-shrink-0">
-                    <i className="fas fa-envelope text-amber-600"></i>
+                    <span className="text-amber-600">✉️</span>
                   </div>
                   <div>
                     <div className="font-semibold text-slate-900 mb-1">Private Inquiries</div>
@@ -385,24 +250,14 @@ export default function GolfTemplate4Premium({ business }: Template4Props) {
                 
                 <div className="flex items-start space-x-4">
                   <div className="bg-amber-100 rounded-lg w-12 h-12 flex items-center justify-center flex-shrink-0">
-                    <i className="fas fa-map-marker-alt text-amber-600"></i>
+                    <span className="text-amber-600">📍</span>
                   </div>
                   <div>
                     <div className="font-semibold text-slate-900 mb-1">Club Location</div>
-                    <div className="text-slate-600">{business.contact?.address}</div>
+                    <div className="text-slate-600">{business.contact?.address || business.location}</div>
                     <div className="text-sm text-slate-500 mt-1">Private entrance and valet parking</div>
                   </div>
                 </div>
-              </div>
-              
-              <div className="bg-amber-50 rounded-2xl p-6">
-                <h4 className="font-bold text-slate-900 mb-3">Exclusive Preview</h4>
-                <p className="text-slate-600 text-sm mb-4">
-                  Schedule a private tour to experience our world-class facilities and meet with our membership team.
-                </p>
-                <Button className="bg-amber-600 hover:bg-amber-700 text-white w-full">
-                  Schedule Private Tour
-                </Button>
               </div>
             </div>
             
@@ -437,22 +292,12 @@ export default function GolfTemplate4Premium({ business }: Template4Props) {
                     </div>
                     
                     <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-2">Current Golf Club (if applicable)</label>
-                      <input type="text" className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-600" />
-                    </div>
-                    
-                    <div>
                       <label className="block text-sm font-medium text-slate-700 mb-2">Interest Level</label>
                       <select className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-600">
                         <option>Exploring membership options</option>
                         <option>Ready to begin application process</option>
                         <option>Request immediate consultation</option>
                       </select>
-                    </div>
-                    
-                    <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-2">Additional Information</label>
-                      <textarea rows={4} className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-600" placeholder="Tell us about your golf background and what you're looking for in a club experience..."></textarea>
                     </div>
                     
                     <Button className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white py-3 text-lg font-semibold">
@@ -477,7 +322,7 @@ export default function GolfTemplate4Premium({ business }: Template4Props) {
             <div className="lg:col-span-2">
               <div className="flex items-center space-x-3 mb-6">
                 <div className="w-12 h-12 bg-gradient-to-br from-amber-400 to-amber-600 rounded-full flex items-center justify-center">
-                  <i className="fas fa-crown text-white text-lg"></i>
+                  <span className="text-white text-lg">👑</span>
                 </div>
                 <div>
                   <div className="text-2xl font-bold">{business.name.split(' ')[0]}</div>
@@ -487,17 +332,6 @@ export default function GolfTemplate4Premium({ business }: Template4Props) {
               <p className="text-slate-300 mb-6 max-w-md leading-relaxed">
                 Where luxury meets tradition. An exclusive sanctuary for those who demand nothing less than perfection in their golf experience.
               </p>
-              <div className="flex space-x-4">
-                <a href="#" className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-amber-600 transition-colors">
-                  <i className="fab fa-facebook text-lg"></i>
-                </a>
-                <a href="#" className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-amber-600 transition-colors">
-                  <i className="fab fa-instagram text-lg"></i>
-                </a>
-                <a href="#" className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-amber-600 transition-colors">
-                  <i className="fab fa-linkedin text-lg"></i>
-                </a>
-              </div>
             </div>
             
             <div>
@@ -507,7 +341,6 @@ export default function GolfTemplate4Premium({ business }: Template4Props) {
                 <li><a href="#" className="hover:text-white transition-colors">Concierge</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Private Events</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Golf Instruction</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Spa Services</a></li>
               </ul>
             </div>
             
@@ -521,15 +354,8 @@ export default function GolfTemplate4Premium({ business }: Template4Props) {
             </div>
           </div>
           
-          <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <div className="text-slate-400 mb-4 md:mb-0">
-              &copy; 2024 {business.name}. All rights reserved.
-            </div>
-            <div className="flex space-x-6 text-slate-400 text-sm">
-              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-white transition-colors">Membership Terms</a>
-              <a href="#" className="hover:text-white transition-colors">Club Rules</a>
-            </div>
+          <div className="border-t border-slate-800 pt-8 text-center text-slate-400">
+            <p>&copy; 2024 {business.name}. All rights reserved.</p>
           </div>
         </div>
       </footer>
