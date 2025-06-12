@@ -12,11 +12,7 @@ interface TemplateGridProps {
 export default function TemplateGrid({ businessSlug, category }: TemplateGridProps) {
   const { data: templates, isLoading } = useQuery<Template[]>({
     queryKey: ['/api/templates', category],
-    queryFn: async () => {
-      const response = await fetch(`/api/templates?category=${category}`);
-      if (!response.ok) throw new Error('Failed to fetch templates');
-      return response.json();
-    }
+    enabled: !!category,
   });
 
   if (isLoading) {
