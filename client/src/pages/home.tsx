@@ -18,9 +18,11 @@ export default function Home() {
               View your preview, claim your site, and go live in minutes.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-slate-800 text-white px-8 py-4 text-lg hover:bg-slate-700">
-                View Demo Sites
-              </Button>
+              <a href="#categories">
+                <Button className="bg-slate-800 text-white px-8 py-4 text-lg hover:bg-slate-700">
+                  View Demo Sites
+                </Button>
+              </a>
               <Button variant="outline" className="border-slate-300 text-slate-700 px-8 py-4 text-lg hover:bg-slate-50">
                 Learn More
               </Button>

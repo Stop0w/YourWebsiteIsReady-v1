@@ -78,9 +78,11 @@ export default function CategoryShowcase() {
             </div>
           </div>
 
-          <Button className="bg-green-600 text-white hover:bg-green-700 w-full">
-            View Golf Club Examples
-          </Button>
+          <Link href="/cumnockgolfclub">
+            <Button className="bg-green-600 text-white hover:bg-green-700 w-full">
+              View Golf Club Examples
+            </Button>
+          </Link>
         </CardContent>
       </Card>
 
@@ -132,9 +134,11 @@ export default function CategoryShowcase() {
             </div>
           </div>
 
-          <Button className="bg-red-600 text-white hover:bg-red-700 w-full">
-            View Tradesman Examples
-          </Button>
+          <Link href="/abcplumbing">
+            <Button className="bg-red-600 text-white hover:bg-red-700 w-full">
+              View Tradesman Examples
+            </Button>
+          </Link>
         </CardContent>
       </Card>
     </div>
