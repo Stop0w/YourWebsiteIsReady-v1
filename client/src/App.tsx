@@ -12,16 +12,33 @@ import NotFound from "@/pages/not-found";
 
 function Router() {
   return (
-    <div className="min-h-screen bg-slate-50">
-      <Navigation />
-      <Switch>
-        <Route path="/" component={Home} />
-        <Route path="/:businessSlug" component={BusinessLanding} />
-        <Route path="/:businessSlug/website-:templateNumber" component={TemplatePreview} />
-        <Route path="/:businessSlug/services" component={Services} />
-        <Route component={NotFound} />
-      </Switch>
-    </div>
+    <Switch>
+      <Route path="/:businessSlug/website-:templateNumber" component={TemplatePreview} />
+      <Route path="/" component={() => (
+        <div className="min-h-screen bg-slate-50">
+          <Navigation />
+          <Home />
+        </div>
+      )} />
+      <Route path="/:businessSlug" component={() => (
+        <div className="min-h-screen bg-slate-50">
+          <Navigation />
+          <BusinessLanding />
+        </div>
+      )} />
+      <Route path="/:businessSlug/services" component={() => (
+        <div className="min-h-screen bg-slate-50">
+          <Navigation />
+          <Services />
+        </div>
+      )} />
+      <Route component={() => (
+        <div className="min-h-screen bg-slate-50">
+          <Navigation />
+          <NotFound />
+        </div>
+      )} />
+    </Switch>
   );
 }
 

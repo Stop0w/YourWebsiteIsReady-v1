@@ -7,6 +7,7 @@ import GolfTemplate1Classic from "@/components/golf-templates/template-1-classic
 import GolfTemplate2Modern from "@/components/golf-templates/template-2-modern";
 import GolfTemplate3Scenic from "@/components/golf-templates/template-3-scenic";
 import GolfTemplate4Premium from "@/components/golf-templates/template-4-premium";
+import TestTemplate from "@/components/golf-templates/template-test";
 
 export default function TemplatePreviewPage() {
   const params = useParams<{ businessSlug: string; templateNumber: string }>();
@@ -55,18 +56,8 @@ export default function TemplatePreviewPage() {
   // For golf templates, render the full template directly
   if (business.category === 'golfclub') {
     const renderTemplate = () => {
-      switch (template.templateNumber) {
-        case 1:
-          return <GolfTemplate1Classic business={business} />;
-        case 2:
-          return <GolfTemplate2Modern business={business} />;
-        case 3:
-          return <GolfTemplate3Scenic business={business} />;
-        case 4:
-          return <GolfTemplate4Premium business={business} />;
-        default:
-          return <GolfTemplate1Classic business={business} />;
-      }
+      // Temporarily use test template to verify routing works
+      return <TestTemplate business={business} />;
     };
 
     return (
