@@ -8,6 +8,7 @@ import GolfTemplate2Modern from "@/components/golf-templates/template-2-modern";
 import GolfTemplate3Scenic from "@/components/golf-templates/template-3-scenic";
 import GolfTemplate4Premium from "@/components/golf-templates/template-4-premium";
 import TestTemplate from "@/components/golf-templates/template-test";
+import DebugTemplate from "@/components/debug-template";
 
 export default function TemplatePreviewPage() {
   const params = useParams<{ businessSlug: string; templateNumber: string }>();
