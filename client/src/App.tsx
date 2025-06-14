@@ -6,14 +6,14 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Navigation from "@/components/navigation";
 import Home from "@/pages/home";
 import BusinessLanding from "@/pages/business-landing";
-import TemplatePreview from "@/pages/template-preview";
+import TemplatePreviewSimple from "@/pages/template-preview-simple";
 import Services from "@/pages/services";
 import NotFound from "@/pages/not-found";
 
 function Router() {
   return (
     <Switch>
-      <Route path="/:businessSlug/website-:templateNumber" component={TemplatePreview} />
+      <Route path="/:businessSlug/website-:templateNumber" component={TemplatePreviewSimple} />
       <Route path="/" component={() => (
         <div className="min-h-screen bg-slate-50">
           <Navigation />

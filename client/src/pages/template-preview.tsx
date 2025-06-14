@@ -57,8 +57,8 @@ export default function TemplatePreviewPage() {
   // For golf templates, render the full template directly
   if (business.category === 'golfclub') {
     const renderTemplate = () => {
-      // Temporarily use test template to verify routing works
-      return <TestTemplate business={business} />;
+      // Use debug template to identify the issue
+      return <DebugTemplate business={business} />;
     };
 
     return (
