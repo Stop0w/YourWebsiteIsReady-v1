@@ -5,6 +5,8 @@ import { useQuery } from "@tanstack/react-query";
 import { useParams } from "wouter";
 import { Business, Template } from "@shared/schema";
 
+import WorkingGolfTemplates from "@/components/working-golf-templates";
+
 // Working Golf Template Component
 function GolfTemplateComponent() {
   const params = useParams<{ businessSlug: string; templateNumber: string }>();
@@ -394,7 +396,7 @@ function GolfTemplateComponent() {
 function Router() {
   return (
     <Switch>
-      <Route path="/:businessSlug/website-:templateNumber" component={GolfTemplateComponent} />
+      <Route path="/:businessSlug/website-:templateNumber" component={WorkingGolfTemplates} />
       <Route path="/" component={() => (
         <div style={{ minHeight: '100vh', backgroundColor: '#f8fafc', padding: '2rem' }}>
           <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
