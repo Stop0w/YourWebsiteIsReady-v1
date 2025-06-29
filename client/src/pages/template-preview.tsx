@@ -3,12 +3,7 @@ import { useParams, Link } from "wouter";
 import { Business, Template } from "@shared/schema";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import GolfTemplate1Classic from "@/components/golf-templates/template-1-classic";
-import GolfTemplate2Modern from "@/components/golf-templates/template-2-modern";
-import GolfTemplate3Scenic from "@/components/golf-templates/template-3-scenic";
-import GolfTemplate4Premium from "@/components/golf-templates/template-4-premium";
-import TestTemplate from "@/components/golf-templates/template-test";
-import DebugTemplate from "@/components/debug-template";
+import WorkingTemplate from "@/components/working-template";
 
 export default function TemplatePreviewPage() {
   const params = useParams<{ businessSlug: string; templateNumber: string }>();
@@ -57,8 +52,7 @@ export default function TemplatePreviewPage() {
   // For golf templates, render the full template directly
   if (business.category === 'golfclub') {
     const renderTemplate = () => {
-      // Use debug template to identify the issue
-      return <DebugTemplate business={business} />;
+      return <WorkingTemplate business={business} />;
     };
 
     return (
