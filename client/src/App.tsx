@@ -8,17 +8,12 @@ import Home from "@/pages/home";
 import BusinessLanding from "@/pages/business-landing";
 import Services from "@/pages/services";
 import NotFound from "@/pages/not-found";
-import WorkingTemplate1 from "@/components/golf-templates/working-template-1";
+import Template1 from "@/components/golf-templates/template-1";
 
 function Router() {
   return (
     <Switch>
-      <Route path="/:businessSlug/website-:templateNumber" component={() => (
-        <div style={{ padding: '20px', backgroundColor: 'lightgreen', minHeight: '100vh' }}>
-          <h1 style={{ color: 'darkgreen', fontSize: '32px' }}>GOLF TEMPLATE WORKING</h1>
-          <p>Templates are now functioning correctly!</p>
-        </div>
-      )} />
+      <Route path="/:businessSlug/website-:templateNumber" component={Template1} />
       <Route path="/" component={() => (
         <div className="min-h-screen bg-slate-50">
           <Navigation />
