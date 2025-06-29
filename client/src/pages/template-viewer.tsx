@@ -1,66 +1,69 @@
-import { useQuery } from "@tanstack/react-query";
 import { useParams } from "wouter";
-import { Business } from "@shared/schema";
-
-// Import all four golf templates
-import GolfTemplate1Classic from "@/components/golf-templates/template-1-classic";
-import GolfTemplate2Modern from "@/components/golf-templates/template-2-modern";
-import GolfTemplate3Scenic from "@/components/golf-templates/template-3-scenic";
-import GolfTemplate4Premium from "@/components/golf-templates/template-4-premium";
 
 export default function TemplateViewer() {
   const params = useParams<{ businessSlug: string; templateNumber: string }>();
   
-  const { data: business, isLoading: businessLoading } = useQuery<Business>({
-    queryKey: [`/api/businesses/${params.businessSlug}`],
-    enabled: !!params.businessSlug,
-  });
-
   const templateNumber = parseInt(params.templateNumber || '1');
+  const businessSlug = params.businessSlug || 'unknown';
 
-  if (businessLoading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-50">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mx-auto mb-4"></div>
-          <p className="text-slate-600">Loading golf course...</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (!business) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-50">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-slate-900 mb-4">Golf Course Not Found</h1>
-          <p className="text-slate-600 mb-6">The golf course you're looking for doesn't exist.</p>
-          <a 
-            href="/" 
-            className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg transition-colors"
-          >
-            Back to Home
-          </a>
-        </div>
-      </div>
-    );
-  }
-
-  // Render the appropriate golf template based on template number
-  const renderTemplate = () => {
+  // Simple test pages to confirm routing works
+  const renderTestTemplate = () => {
     switch (templateNumber) {
       case 1:
-        return <GolfTemplate1Classic business={business} />;
+        return (
+          <div className="min-h-screen bg-green-50 flex items-center justify-center">
+            <div className="text-center">
+              <h1 className="text-4xl font-bold text-green-800 mb-4">Golf Template 1</h1>
+              <p className="text-xl text-green-600 mb-2">Classic Golf Template</p>
+              <p className="text-lg text-gray-600">Business: {businessSlug}</p>
+              <p className="text-sm text-gray-500 mt-4">This is a test page to confirm routing works</p>
+            </div>
+          </div>
+        );
       case 2:
-        return <GolfTemplate2Modern business={business} />;
+        return (
+          <div className="min-h-screen bg-blue-50 flex items-center justify-center">
+            <div className="text-center">
+              <h1 className="text-4xl font-bold text-blue-800 mb-4">Golf Template 2</h1>
+              <p className="text-xl text-blue-600 mb-2">Modern Golf Template</p>
+              <p className="text-lg text-gray-600">Business: {businessSlug}</p>
+              <p className="text-sm text-gray-500 mt-4">This is a test page to confirm routing works</p>
+            </div>
+          </div>
+        );
       case 3:
-        return <GolfTemplate3Scenic business={business} />;
+        return (
+          <div className="min-h-screen bg-yellow-50 flex items-center justify-center">
+            <div className="text-center">
+              <h1 className="text-4xl font-bold text-yellow-800 mb-4">Golf Template 3</h1>
+              <p className="text-xl text-yellow-600 mb-2">Scenic Golf Template</p>
+              <p className="text-lg text-gray-600">Business: {businessSlug}</p>
+              <p className="text-sm text-gray-500 mt-4">This is a test page to confirm routing works</p>
+            </div>
+          </div>
+        );
       case 4:
-        return <GolfTemplate4Premium business={business} />;
+        return (
+          <div className="min-h-screen bg-purple-50 flex items-center justify-center">
+            <div className="text-center">
+              <h1 className="text-4xl font-bold text-purple-800 mb-4">Golf Template 4</h1>
+              <p className="text-xl text-purple-600 mb-2">Premium Golf Template</p>
+              <p className="text-lg text-gray-600">Business: {businessSlug}</p>
+              <p className="text-sm text-gray-500 mt-4">This is a test page to confirm routing works</p>
+            </div>
+          </div>
+        );
       default:
-        return <GolfTemplate1Classic business={business} />;
+        return (
+          <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+            <div className="text-center">
+              <h1 className="text-4xl font-bold text-gray-800 mb-4">Template Not Found</h1>
+              <p className="text-xl text-gray-600">Template {templateNumber} does not exist</p>
+            </div>
+          </div>
+        );
     }
   };
 
-  return renderTemplate();
+  return renderTestTemplate();
 }
