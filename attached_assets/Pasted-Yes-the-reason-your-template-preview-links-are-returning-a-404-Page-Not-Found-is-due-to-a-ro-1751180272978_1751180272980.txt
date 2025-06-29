@@ -1,0 +1,60 @@
+Yes – the reason your template preview links are returning a **404 Page Not Found** is due to a **routing mismatch** between the path you're trying to open (`/:businessSlug/website-:templateNumber`) and what `TemplatePreviewPage` expects.
+
+---
+
+### ✅ You’re Rendering:
+
+In your `<App />` routing:
+
+```tsx
+<Route path="/:businessSlug/website-:templateNumber" component={SimpleGolfApp} />
+```
+
+This route only ever renders `SimpleGolfApp` regardless of category. But your `TemplatePreviewPage` with category-based logic (e.g., `golfclub`, `tradesman`, etc.) is never being used.
+
+---
+
+### 🔍 Root Cause:
+
+* You have built `TemplatePreviewPage`, but it’s not **wired into the router**.
+* You're expecting template previews to show different layouts based on the business category (like `golfclub` → `WorkingTemplate`, `tradesman` → hero image, etc.), but you're always routing to `SimpleGolfApp`, which is hardcoded for golf.
+
+---
+
+### 🛠️ Recommended Fix:
+
+Update your router like so:
+
+```tsx
+import TemplatePreviewPage from "./pages/template-preview"; // <-- Add this import
+
+<Switch>
+  <Route path="/:businessSlug/website-:templateNumber" component={TemplatePreviewPage} /> // <-- Change here
+  <Route path="/:businessSlug/services" component={Services} />
+  <Route path="/:businessSlug" component={BusinessLanding} />
+  <Route path="/" component={Home} />
+  <Route component={NotFound} />
+</Switch>
+```
+
+---
+
+### ✅ Outcome:
+
+This will:
+
+* Route preview links like `/cumnockgolfclub/website-2` to `TemplatePreviewPage`
+* Let `TemplatePreviewPage`:
+
+  * Fetch the business
+  * Determine the category
+  * Render `WorkingTemplate` (for golf) or fallback UI for others
+* Eliminate the 404 you're seeing on tradesmen templates (because currently, there’s no matching dynamic template logic for that category)
+
+---
+
+### 🧠 Optional Cleanup:
+
+If `SimpleGolfApp` is now obsolete (as `WorkingTemplate` handles the golf rendering), you could remove `SimpleGolfApp` entirely or keep it only for legacy fallback.
+
+Let me know if you'd like me to restructure the routing file or stub out a `TemplateRenderer` component that switches by category.
