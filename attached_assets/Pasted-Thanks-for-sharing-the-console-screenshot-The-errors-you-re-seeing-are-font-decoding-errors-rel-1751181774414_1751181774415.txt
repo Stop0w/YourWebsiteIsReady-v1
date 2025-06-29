@@ -1,0 +1,95 @@
+Thanks for sharing the console screenshot. The errors you're seeing are **font decoding errors** related to the Google Fonts Inter family — specifically this line:
+
+```
+OTS parsing error: invalid sfntVersion: 791289955
+```
+
+This usually happens in development environments like **Replit**, due to **proxy or CORS-related font fetching issues**.
+
+---
+
+### ✅ TL;DR: Your Fonts Aren’t the Cause of the 404
+
+These font errors are **unrelated** to your template 404 issue (which we fixed in the previous message by routing to `TemplatePreviewPage`).
+
+However, you **can and should** clean them up to avoid dev console noise.
+
+---
+
+### 🛠️ Fix Options
+
+#### **Option 1: Switch Font Link**
+
+Update your font import to remove legacy weights or switch to a minimal `Inter` version.
+
+**Old (likely what's in your code):**
+
+```html
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+```
+
+**Try instead:**
+
+```html
+<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
+```
+
+This ensures:
+
+* Cleaner font loading
+* Avoids issues with rare weights or experimental subsets
+
+---
+
+#### **Option 2: Use a Local Fallback**
+
+If you're using Tailwind or custom CSS, fall back to a system font stack:
+
+```css
+font-family: 'Inter', system-ui, sans-serif;
+```
+
+And in your `tailwind.config.js`:
+
+```js
+fontFamily: {
+  sans: ['Inter', 'system-ui', 'sans-serif'],
+}
+```
+
+---
+
+#### **Option 3: Self-Host Inter (Production-Ready)**
+
+To remove reliance on Google Fonts entirely:
+
+1. Download Inter from [https://rsms.me/inter/](https://rsms.me/inter/)
+2. Serve locally from `/public/fonts/inter/`
+3. Add this in your CSS:
+
+```css
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/inter/Inter-Regular.woff2') format('woff2');
+}
+```
+
+---
+
+### ✅ Bonus: Disable Inter Weights You Don't Use
+
+In Google Fonts, [generate a link](https://fonts.google.com/specimen/Inter) that **only includes weights you actually need** (e.g., 400, 600).
+
+---
+
+### Summary
+
+| Fix Option                | Effort      | Recommended When                     |
+| ------------------------- | ----------- | ------------------------------------ |
+| Simplify Google Fonts URL | 🟢 Easy     | Dev/testing only, quickest fix       |
+| System Fallback           | 🟡 Medium   | Good general practice                |
+| Self-host fonts           | 🔴 Advanced | Production reliability & performance |
+
+Would you like help updating your project’s `_document.tsx` or HTML template with the new font link?
