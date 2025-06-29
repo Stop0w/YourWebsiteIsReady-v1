@@ -3,14 +3,27 @@ import { Business } from "@shared/schema";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
+import { useState } from "react";
+import { Eye } from "lucide-react";
+import TemplatePreviewModal from "./template-preview-modal";
 
 export default function CategoryShowcase() {
   const { data: businesses, isLoading } = useQuery<Business[]>({
     queryKey: ['/api/businesses'],
   });
 
+  const [previewOpen, setPreviewOpen] = useState(false);
+  const [selectedTemplate, setSelectedTemplate] = useState(1);
+  const [selectedBusiness, setSelectedBusiness] = useState<Business | null>(null);
+
   const golfBusinesses = businesses?.filter(b => b.category === 'golfclub') || [];
   const tradesmanBusinesses = businesses?.filter(b => b.category === 'tradesman') || [];
+
+  const handlePreviewTemplate = (templateNumber: number, business: Business) => {
+    setSelectedTemplate(templateNumber);
+    setSelectedBusiness(business);
+    setPreviewOpen(true);
+  };
 
   if (isLoading) {
     return (
@@ -29,6 +42,7 @@ export default function CategoryShowcase() {
   }
 
   return (
+    <>
     <div className="grid lg:grid-cols-2 gap-12">
       {/* Golf Clubs Category */}
       <Card className="bg-gradient-to-br from-green-50 to-white border-green-100">
@@ -74,6 +88,25 @@ export default function CategoryShowcase() {
                     {business.name} - {business.location}
                   </div>
                 </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Template Preview Buttons */}
+          <div className="mb-4">
+            <h4 className="font-semibold text-slate-800 mb-3">Preview Templates:</h4>
+            <div className="grid grid-cols-2 gap-2">
+              {[1, 2, 3, 4].map((templateNum) => (
+                <Button
+                  key={templateNum}
+                  variant="outline"
+                  size="sm"
+                  className="text-green-700 border-green-200 hover:bg-green-50"
+                  onClick={() => handlePreviewTemplate(templateNum, golfBusinesses[0])}
+                >
+                  <Eye className="w-4 h-4 mr-1" />
+                  Template {templateNum}
+                </Button>
               ))}
             </div>
           </div>
@@ -142,5 +175,16 @@ export default function CategoryShowcase() {
         </CardContent>
       </Card>
     </div>
+
+    {/* Template Preview Modal */}
+    {selectedBusiness && (
+      <TemplatePreviewModal
+        open={previewOpen}
+        onOpenChange={setPreviewOpen}
+        templateNumber={selectedTemplate}
+        business={selectedBusiness}
+      />
+    )}
+    </>
   );
 }
