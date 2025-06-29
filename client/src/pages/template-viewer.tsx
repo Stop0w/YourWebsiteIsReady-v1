@@ -1,12 +1,8 @@
-import { Switch, Route } from "wouter";
-import { queryClient } from "./lib/queryClient";
-import { QueryClientProvider } from "@tanstack/react-query";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "wouter";
 import { Business, Template } from "@shared/schema";
 
-// Working Golf Template Component
-function GolfTemplateComponent() {
+export default function TemplateViewer() {
   const params = useParams<{ businessSlug: string; templateNumber: string }>();
   
   const { data: business, isLoading: businessLoading } = useQuery<Business>({
@@ -117,13 +113,15 @@ function GolfTemplateComponent() {
         backgroundColor: theme.primary, 
         color: 'white', 
         padding: '4rem 2rem', 
-        textAlign: 'center'
+        textAlign: 'center',
+        background: `linear-gradient(135deg, ${theme.primary} 0%, ${theme.accent} 100%)`
       }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <h1 style={{ 
             fontSize: '4rem', 
             margin: '0 0 1rem 0', 
-            fontWeight: 'bold'
+            fontWeight: 'bold',
+            textShadow: '0 2px 4px rgba(0,0,0,0.2)'
           }}>
             {business.name}
           </h1>
@@ -144,16 +142,52 @@ function GolfTemplateComponent() {
         </div>
       </header>
 
+      {/* Navigation */}
+      <nav style={{ 
+        backgroundColor: 'white', 
+        boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+        position: 'sticky',
+        top: '0',
+        zIndex: 100
+      }}>
+        <div style={{ 
+          maxWidth: '1200px', 
+          margin: '0 auto', 
+          display: 'flex', 
+          justifyContent: 'center', 
+          gap: '2rem',
+          padding: '1rem'
+        }}>
+          {['About', 'Course', 'Facilities', 'Contact'].map(item => (
+            <a 
+              key={item}
+              href={`#${item.toLowerCase()}`} 
+              style={{ 
+                textDecoration: 'none', 
+                color: '#374151', 
+                fontWeight: '600',
+                padding: '0.75rem 1.5rem',
+                borderRadius: '8px',
+                transition: 'all 0.2s'
+              }}
+            >
+              {item}
+            </a>
+          ))}
+        </div>
+      </nav>
+
       {/* Main Content */}
       <main style={{ maxWidth: '1200px', margin: '0 auto', padding: '4rem 2rem' }}>
         
         {/* About Section */}
-        <section style={{ marginBottom: '5rem' }}>
+        <section id="about" style={{ marginBottom: '5rem' }}>
           <h2 style={{ 
             fontSize: '3rem', 
             marginBottom: '2rem', 
             color: '#1f2937',
-            textAlign: 'center'
+            textAlign: 'center',
+            fontWeight: 'bold'
           }}>
             Welcome to {business.name.split(' ')[0]} Golf Club
           </h2>
@@ -177,17 +211,19 @@ function GolfTemplateComponent() {
         </section>
 
         {/* Course Stats */}
-        <section style={{ 
+        <section id="course" style={{ 
           marginBottom: '5rem',
           backgroundColor: theme.secondary,
           padding: '4rem 3rem',
-          borderRadius: '20px'
+          borderRadius: '20px',
+          margin: '0 -1rem 5rem -1rem'
         }}>
           <h2 style={{ 
             fontSize: '3rem', 
             marginBottom: '3rem', 
             color: theme.primary,
-            textAlign: 'center'
+            textAlign: 'center',
+            fontWeight: 'bold'
           }}>
             Course Information
           </h2>
@@ -197,9 +233,9 @@ function GolfTemplateComponent() {
             gap: '2rem' 
           }}>
             {[
-              { icon: '⛳', number: '18', label: 'Championship Holes' },
-              { icon: '🏆', number: '72', label: 'Par Rating' },
-              { icon: '📏', number: '6,800', label: 'Total Yards' }
+              { icon: '⛳', number: '18', label: 'Championship Holes', desc: 'Full regulation 18-hole course' },
+              { icon: '🏆', number: '72', label: 'Par Rating', desc: 'Tournament standard par 72' },
+              { icon: '📏', number: '6,800', label: 'Total Yards', desc: 'Championship distance layout' }
             ].map((stat, index) => (
               <div 
                 key={index}
@@ -209,51 +245,239 @@ function GolfTemplateComponent() {
                   borderRadius: '16px', 
                   textAlign: 'center',
                   boxShadow: '0 8px 20px rgba(0,0,0,0.08)',
-                  border: `2px solid ${theme.primary}`
+                  border: `2px solid ${theme.primary}`,
+                  position: 'relative',
+                  overflow: 'hidden'
                 }}
               >
-                <div style={{ fontSize: '3.5rem', marginBottom: '1rem' }}>
+                <div style={{
+                  position: 'absolute',
+                  top: '-30px',
+                  right: '-30px',
+                  width: '80px',
+                  height: '80px',
+                  backgroundColor: theme.secondary,
+                  borderRadius: '50%',
+                  opacity: 0.5
+                }}></div>
+                
+                <div style={{ 
+                  fontSize: '3.5rem', 
+                  marginBottom: '1rem',
+                  position: 'relative',
+                  zIndex: 1
+                }}>
                   {stat.icon}
                 </div>
                 <div style={{ 
                   fontSize: '3.5rem', 
                   fontWeight: 'bold', 
                   color: theme.primary,
-                  marginBottom: '0.5rem'
+                  marginBottom: '0.5rem',
+                  position: 'relative',
+                  zIndex: 1
                 }}>
                   {stat.number}
                 </div>
                 <h3 style={{ 
                   fontSize: '1.5rem', 
                   fontWeight: 'bold', 
-                  color: '#1f2937'
+                  marginBottom: '1rem',
+                  color: '#1f2937',
+                  position: 'relative',
+                  zIndex: 1
                 }}>
                   {stat.label}
                 </h3>
+                <p style={{ 
+                  color: '#6b7280',
+                  margin: '0',
+                  fontSize: '1rem',
+                  position: 'relative',
+                  zIndex: 1
+                }}>
+                  {stat.desc}
+                </p>
               </div>
             ))}
           </div>
         </section>
 
+        {/* Facilities */}
+        <section id="facilities" style={{ marginBottom: '5rem' }}>
+          <h2 style={{ 
+            fontSize: '3rem', 
+            marginBottom: '3rem', 
+            color: '#1f2937',
+            textAlign: 'center',
+            fontWeight: 'bold'
+          }}>
+            World-Class Facilities
+          </h2>
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))', 
+            gap: '3rem' 
+          }}>
+            <div style={{ 
+              backgroundColor: 'white', 
+              padding: '3rem', 
+              borderRadius: '16px',
+              boxShadow: '0 10px 25px rgba(0,0,0,0.08)',
+              border: `2px solid ${theme.secondary}`
+            }}>
+              <div style={{ 
+                fontSize: '3rem', 
+                marginBottom: '1.5rem',
+                textAlign: 'center'
+              }}>
+                🏌️
+              </div>
+              <h3 style={{ 
+                fontSize: '2rem', 
+                fontWeight: 'bold', 
+                marginBottom: '1.5rem',
+                color: theme.primary,
+                textAlign: 'center'
+              }}>
+                Golf Facilities
+              </h3>
+              <ul style={{ 
+                listStyle: 'none', 
+                padding: '0', 
+                margin: '0' 
+              }}>
+                {[
+                  'Professional driving range with covered bays',
+                  'Multiple practice putting greens',
+                  'Short game practice area with bunkers',
+                  'Golf cart rentals and storage',
+                  'Club fitting and repair services'
+                ].map((item, index) => (
+                  <li 
+                    key={index}
+                    style={{ 
+                      padding: '1rem 0', 
+                      borderBottom: index < 4 ? '1px solid #f3f4f6' : 'none',
+                      color: '#4b5563',
+                      fontSize: '1.1rem',
+                      display: 'flex',
+                      alignItems: 'center'
+                    }}
+                  >
+                    <span style={{ 
+                      color: theme.accent, 
+                      marginRight: '1rem',
+                      fontSize: '1.3rem',
+                      fontWeight: 'bold'
+                    }}>
+                      ✓
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div style={{ 
+              backgroundColor: 'white', 
+              padding: '3rem', 
+              borderRadius: '16px',
+              boxShadow: '0 10px 25px rgba(0,0,0,0.08)',
+              border: `2px solid ${theme.secondary}`
+            }}>
+              <div style={{ 
+                fontSize: '3rem', 
+                marginBottom: '1.5rem',
+                textAlign: 'center'
+              }}>
+                🏛️
+              </div>
+              <h3 style={{ 
+                fontSize: '2rem', 
+                fontWeight: 'bold', 
+                marginBottom: '1.5rem',
+                color: theme.primary,
+                textAlign: 'center'
+              }}>
+                Clubhouse Amenities
+              </h3>
+              <ul style={{ 
+                listStyle: 'none', 
+                padding: '0', 
+                margin: '0' 
+              }}>
+                {[
+                  'Fine dining restaurant with terrace views',
+                  'Members bar and lounge area',
+                  'Fully stocked pro shop',
+                  'Event and function facilities',
+                  'Premium locker rooms and amenities'
+                ].map((item, index) => (
+                  <li 
+                    key={index}
+                    style={{ 
+                      padding: '1rem 0', 
+                      borderBottom: index < 4 ? '1px solid #f3f4f6' : 'none',
+                      color: '#4b5563',
+                      fontSize: '1.1rem',
+                      display: 'flex',
+                      alignItems: 'center'
+                    }}
+                  >
+                    <span style={{ 
+                      color: theme.accent, 
+                      marginRight: '1rem',
+                      fontSize: '1.3rem',
+                      fontWeight: 'bold'
+                    }}>
+                      ✓
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
         {/* Contact */}
-        <section style={{ 
+        <section id="contact" style={{ 
           backgroundColor: theme.secondary, 
           padding: '4rem 3rem', 
           borderRadius: '20px',
-          border: `3px solid ${theme.primary}`
+          marginBottom: '3rem',
+          border: `3px solid ${theme.primary}`,
+          position: 'relative'
         }}>
+          <div style={{
+            position: 'absolute',
+            top: '30px',
+            left: '30px',
+            fontSize: '5rem',
+            opacity: 0.1,
+            color: theme.primary
+          }}>
+            ⛳
+          </div>
+          
           <h2 style={{ 
             fontSize: '3rem', 
             marginBottom: '3rem', 
             color: theme.primary,
-            textAlign: 'center'
+            textAlign: 'center',
+            fontWeight: 'bold',
+            position: 'relative',
+            zIndex: 1
           }}>
             Visit Us Today
           </h2>
           <div style={{ 
             display: 'grid', 
             gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', 
-            gap: '3rem'
+            gap: '3rem',
+            position: 'relative',
+            zIndex: 1
           }}>
             <div>
               <h3 style={{ 
@@ -265,14 +489,17 @@ function GolfTemplateComponent() {
                 📍 Contact Information
               </h3>
               <div style={{ color: '#374151', lineHeight: '1.8', fontSize: '1.1rem' }}>
-                <p style={{ margin: '1rem 0' }}>
-                  <strong>Address:</strong> {business.contact?.address || business.location}
+                <p style={{ margin: '1rem 0', display: 'flex', alignItems: 'center' }}>
+                  <span style={{ marginRight: '1rem', fontSize: '1.3rem' }}>🏠</span>
+                  <span><strong>Address:</strong> {business.contact?.address || business.location}</span>
                 </p>
-                <p style={{ margin: '1rem 0' }}>
-                  <strong>Phone:</strong> {business.contact?.phone}
+                <p style={{ margin: '1rem 0', display: 'flex', alignItems: 'center' }}>
+                  <span style={{ marginRight: '1rem', fontSize: '1.3rem' }}>📞</span>
+                  <span><strong>Phone:</strong> {business.contact?.phone}</span>
                 </p>
-                <p style={{ margin: '1rem 0' }}>
-                  <strong>Email:</strong> {business.contact?.email}
+                <p style={{ margin: '1rem 0', display: 'flex', alignItems: 'center' }}>
+                  <span style={{ marginRight: '1rem', fontSize: '1.3rem' }}>✉️</span>
+                  <span><strong>Email:</strong> {business.contact?.email}</span>
                 </p>
               </div>
             </div>
@@ -307,6 +534,7 @@ function GolfTemplateComponent() {
         top: '20px',
         right: '20px',
         backgroundColor: 'rgba(255, 255, 255, 0.95)',
+        backdropFilter: 'blur(10px)',
         padding: '1.5rem',
         borderRadius: '12px',
         boxShadow: '0 8px 25px rgba(0, 0, 0, 0.15)',
@@ -319,7 +547,8 @@ function GolfTemplateComponent() {
           marginBottom: '1rem', 
           color: '#6b7280', 
           fontSize: '13px',
-          textAlign: 'center'
+          textAlign: 'center',
+          fontWeight: '600'
         }}>
           {template.name} ({theme.name})
         </div>
@@ -346,7 +575,8 @@ function GolfTemplateComponent() {
                 color: t.templateNumber === templateNumber 
                   ? 'white' 
                   : '#64748b',
-                border: `2px solid ${t.templateNumber === templateNumber ? theme.primary : '#e2e8f0'}`
+                border: `2px solid ${t.templateNumber === templateNumber ? theme.primary : '#e2e8f0'}`,
+                transition: 'all 0.2s'
               }}
             >
               Template {t.templateNumber}
@@ -364,7 +594,8 @@ function GolfTemplateComponent() {
             fontSize: '11px',
             textAlign: 'center',
             borderRadius: '6px',
-            border: '1px solid #e2e8f0'
+            border: '1px solid #e2e8f0',
+            transition: 'all 0.2s'
           }}
         >
           ← Back to Templates
@@ -379,10 +610,18 @@ function GolfTemplateComponent() {
         textAlign: 'center' 
       }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <h3 style={{ fontSize: '1.8rem', marginBottom: '1rem' }}>
+          <h3 style={{ 
+            fontSize: '1.8rem', 
+            marginBottom: '1rem',
+            color: 'white'
+          }}>
             {business.name}
           </h3>
-          <p style={{ margin: '0', opacity: 0.8 }}>
+          <p style={{ 
+            margin: '0', 
+            opacity: 0.8,
+            fontSize: '1rem'
+          }}>
             &copy; 2024 {business.name}. All rights reserved. | {template.name} Template
           </p>
         </div>
@@ -390,119 +629,3 @@ function GolfTemplateComponent() {
     </div>
   );
 }
-
-function Router() {
-  return (
-    <Switch>
-      <Route path="/:businessSlug/website-:templateNumber" component={GolfTemplateComponent} />
-      <Route path="/" component={() => (
-        <div style={{ minHeight: '100vh', backgroundColor: '#f8fafc', padding: '2rem' }}>
-          <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
-            <h1 style={{ fontSize: '3rem', color: '#1f2937', marginBottom: '2rem' }}>
-              It's Done - Golf Course Websites
-            </h1>
-            <p style={{ fontSize: '1.2rem', color: '#6b7280', marginBottom: '3rem' }}>
-              Professional golf course website templates
-            </p>
-            <a 
-              href="/cumnockgolfclub"
-              style={{ 
-                backgroundColor: '#059669', 
-                color: 'white', 
-                padding: '1rem 2rem',
-                borderRadius: '8px',
-                textDecoration: 'none',
-                fontSize: '1.1rem',
-                fontWeight: 'bold'
-              }}
-            >
-              View Demo Golf Course
-            </a>
-          </div>
-        </div>
-      )} />
-      <Route path="/:businessSlug" component={() => (
-        <div style={{ minHeight: '100vh', backgroundColor: '#f8fafc', padding: '2rem' }}>
-          <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
-            <h1 style={{ fontSize: '3rem', color: '#1f2937', marginBottom: '2rem' }}>
-              Cumnock Golf Club Templates
-            </h1>
-            <p style={{ fontSize: '1.2rem', color: '#6b7280', marginBottom: '3rem' }}>
-              Choose from 4 professional website templates
-            </p>
-            <div style={{ 
-              display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
-              gap: '2rem' 
-            }}>
-              {[
-                { num: 1, name: 'Classic Green', color: '#059669' },
-                { num: 2, name: 'Ocean Blue', color: '#1e40af' },
-                { num: 3, name: 'Autumn Gold', color: '#7c2d12' },
-                { num: 4, name: 'Royal Purple', color: '#581c87' }
-              ].map(template => (
-                <a
-                  key={template.num}
-                  href={`/cumnockgolfclub/website-${template.num}`}
-                  style={{
-                    display: 'block',
-                    backgroundColor: 'white',
-                    padding: '2rem',
-                    borderRadius: '12px',
-                    textDecoration: 'none',
-                    color: template.color,
-                    border: `3px solid ${template.color}`,
-                    boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-                    transition: 'transform 0.2s'
-                  }}
-                >
-                  <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>
-                    Template {template.num}
-                  </h3>
-                  <p style={{ color: '#6b7280', margin: '0' }}>
-                    {template.name}
-                  </p>
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-      )} />
-      <Route component={() => (
-        <div style={{ minHeight: '100vh', backgroundColor: '#f8fafc', padding: '2rem' }}>
-          <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
-            <h1 style={{ fontSize: '3rem', color: '#1f2937', marginBottom: '2rem' }}>
-              Page Not Found
-            </h1>
-            <p style={{ fontSize: '1.2rem', color: '#6b7280', marginBottom: '3rem' }}>
-              The page you're looking for doesn't exist.
-            </p>
-            <a 
-              href="/"
-              style={{ 
-                backgroundColor: '#059669', 
-                color: 'white', 
-                padding: '1rem 2rem',
-                borderRadius: '8px',
-                textDecoration: 'none',
-                fontSize: '1.1rem'
-              }}
-            >
-              Go Home
-            </a>
-          </div>
-        </div>
-      )} />
-    </Switch>
-  );
-}
-
-function App() {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <Router />
-    </QueryClientProvider>
-  );
-}
-
-export default App;
